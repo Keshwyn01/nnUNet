@@ -27,7 +27,7 @@ from nnunet.experiment_planning.common_utils import split_4d_nifti
 from nnunet.paths import nnUNet_raw_data, nnUNet_cropped_data, preprocessing_output_dir
 from nnunet.preprocessing.cropping import ImageCropper
 
-
+## This will split files into 3d from 4d 
 def split_4d(input_folder, num_processes=default_num_threads, overwrite_task_output_id=None):
     assert isdir(join(input_folder, "imagesTr")) and isdir(join(input_folder, "labelsTr")) and \
            isfile(join(input_folder, "dataset.json")), \
@@ -52,6 +52,7 @@ def split_4d(input_folder, num_processes=default_num_threads, overwrite_task_out
 
     output_folder = join(nnUNet_raw_data, "Task%03.0d_" % overwrite_task_output_id + task_name)
 
+    #if new output raw data dir already exists, delete dir and all its contents
     if isdir(output_folder):
         shutil.rmtree(output_folder)
 

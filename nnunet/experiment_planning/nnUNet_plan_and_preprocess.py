@@ -75,7 +75,7 @@ def main():
 
         if args.verify_dataset_integrity:
             verify_dataset_integrity(join(nnUNet_raw_data, task_name))
-
+        ## super important step, crops data and creates cropped folder for which all stuff is trained on)
         crop(task_name, False, tf)
 
         tasks.append(task_name)

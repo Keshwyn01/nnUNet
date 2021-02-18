@@ -19,7 +19,7 @@ import SimpleITK as sitk
 import shutil
 from batchgenerators.utilities.file_and_folder_operations import join
 
-
+## makes each 4d file into 3d 1 for each modality
 def split_4d_nifti(filename, output_folder):
     img_itk = sitk.ReadImage(filename)
     dim = img_itk.GetDimension()
